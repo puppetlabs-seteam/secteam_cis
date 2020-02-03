@@ -6,7 +6,7 @@
 # @example
 #   include secteam::os::windows_2019
 
-class cis::os::windows_2019 (
+class secteam_cis::os::windows_2019 (
   Boolean $firewall_enabled = true,
   String  $password_history = '50',
   String  $password_length = '15',
