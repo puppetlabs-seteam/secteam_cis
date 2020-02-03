@@ -10,7 +10,7 @@
 class secteam_cis::windows::windows2019 (
   Boolean $firewall_enabled = true,
   String  $password_history = '50',
-  Numeric  $password_length = '15',
+  Numeric  $password_length = 15,
 ) {
 
   # pick 10 controls. ~5 params to override values. 
@@ -24,7 +24,7 @@ class secteam_cis::windows::windows2019 (
   # 1.1.4 (L1) Ensure 'Minimum password length' is set to '14 or more character(s)' (Scored)
   local_security_policy { 'Minimum password length':
     ensure       => present,
-    policy_value => Integer($password_length),
+    policy_value => $password_length,
   }
 
   # 1.1.5 (L1) Ensure 'Password must meet complexity requirements' is set to 'Enabled' (Scored)
