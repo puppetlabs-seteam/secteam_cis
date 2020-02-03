@@ -10,8 +10,8 @@ class secteam_cis::standard_baseline {
   $fam = $facts.get('os.family').tolower
   $maj = $facts.get('os.release.major').tolower
 
-  if defined("secteam_cis::${fam}::${maj}") {
-    include "secteam_cis::${fam}::${maj}"
+  if defined("secteam_cis::${fam}::${fam}${maj}") {
+    include "secteam_cis::${fam}::${fam}${maj}"
   }
   else {
     fail('secteam_cis - unsupported operating system, please see readme')

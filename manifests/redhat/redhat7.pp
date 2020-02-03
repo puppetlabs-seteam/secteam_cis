@@ -1,13 +1,13 @@
-# @summary Manage hand selected CIS controls for Rhel 8
+# @summary Manage hand selected CIS controls for Rhel 7/8
 #
 # This class manages specific controls from the CIS benchmark for Windows. 
 # The source is # "CIS Microsoft Windows Server 2019 RTM (Release 1809) Benchmark"
 #   # v1.0.1 - 11-22-2019"
 #
 # @example
-#   include secteam::os::rhel_8
+#   include secteam::redhat::redhat7
 
-class secteam_cis::os::rhel_8 (
+class secteam_cis::redhat::redhat7 (
 
   Boolean $firewall_enabled = true,
   String  $password_history = '50',
@@ -84,14 +84,14 @@ class secteam_cis::os::rhel_8 (
   service { 'rsyncd':
     ensure => 'stopped',
     enable => 'false',
-    tag      => ['CIS_RHEL_2'],
+    tag    => ['CIS_RHEL_2'],
   }
 
   # 3.4.2.2 Ensure nftables is not enabled (Scored)
   service { 'nftables':
     ensure => 'stopped',
     enable => 'false',
-    tag      => ['CIS_RHEL_3'],
+    tag    => ['CIS_RHEL_3'],
   }
 
   # 4.1.1.1 Ensure auditd is installed (Scored)

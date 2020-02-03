@@ -1,12 +1,13 @@
 # @summary Manage hand selected CIS controls for Windows 2019
 #
-# This class manages specific controls from the CIS benchmark for Windows. The source used is "CIS Microsoft Windows Server 2019 RTM (Release 1809) Benchmark
+# This class manages specific controls from the CIS benchmark for Windows. The source \
+# used is "CIS Microsoft Windows Server 2019 RTM (Release 1809) Benchmark
 # v1.0.1 - 11-22-2019"
 #
 # @example
-#   include secteam::os::windows_2019
+#   include secteam_cis::windows::windows2019
 
-class secteam_cis::os::windows_2019 (
+class secteam_cis::windows::windows2019 (
   Boolean $firewall_enabled = true,
   String  $password_history = '50',
   String  $password_length = '15',
@@ -52,7 +53,7 @@ class secteam_cis::os::windows_2019 (
     notify => Service['MpsSvc'],
   }
 
-  registry_value { 'HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\Services\\SharedAccess\\Parameters\\FirewallPolicy\\DomainProfile\\EnableFirewall':
+  registry_value { 'HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy\\DomainProfile\\EnableFirewall':
     type   => dword,
     data   => '1',
     notify => Service['MpsSvc'],
